@@ -1,0 +1,22 @@
+enum EnrollmentStatus {
+    PENDING
+    COMPLETED
+    DROPPED
+}
+
+model Enrollment {
+    id Int @id @default(autoincrement())
+    studentId Int
+    courseId Int
+    
+    student Student @relation(fields: [studentId], references: [id])
+    course Course @relation(fields: [courseId], references: [id])
+    
+    status EnrollmentStatus @default(PENDING)
+    
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@unique([studentId, courseId])
+    @@index([courseId])
+}

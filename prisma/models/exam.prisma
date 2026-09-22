@@ -1,0 +1,16 @@
+model Exam {
+    id Int @id @default(autoincrement())
+    title String @unique
+    examDate DateTime
+    maxMarks Int
+
+    courseId Int
+    course Course @relation(fields:[courseId], references:[id], onDelete: Cascade, onUpdate: Cascade)
+
+    marks Mark[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    
+    @@index([courseId])
+}
