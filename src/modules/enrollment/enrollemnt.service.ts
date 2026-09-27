@@ -2,9 +2,8 @@ import { AppError } from "../../common/errors/AppError.js";
 import { CourseRepository } from "../course/course.repository.js";
 import { StudentRepository } from "../student/repositories/student.repository.js";
 import { CreateEnrollmentInput, ListEnrollmentsQuery, UpdateEnrollementStatusInput } from "./enrollment.dto.js";
-import { EnrollmentRepository, EnrollmentWithRelations } from "./enrollment.repository.js";
 import { EnrollmentStatus } from "@prisma/client";
-import { EnrollmentWithRelations } from './enrollment.repository';
+import { EnrollmentRepository, EnrollmentWithRelations } from "./enrollment.repository.js";
 
 export class EnrollmentService {
     constructor(
